@@ -1,7 +1,10 @@
 # 🌍 Worldwide Ltd Charity Live Impact Globe  
 **Innovation. Hope. Global Change.**
 
-Welcome to the official GitHub organization profile for **Worldwide Ltd Charity Live Impact Globe (NGO Worldwide Ltd)** — a global charity dedicated to empowering communities, promoting education, advancing healthcare, and driving sustainable development worldwide.
+![Worldwide Ltd Charity Live Impact Globe Logo](https://github.com/Worldwide-Ltd-Charity-Live-Impact-Globe/github/blob/main/logo.png)
+
+[![🏆 Winners Registered](https://img.shields.io/badge/Winners%20Registered-Live%20Feed-success?style=for-the-badge&logo=github)](https://ngo-worldwide.org/winners-dashboard)
+[![🌐 Visit Website](https://img.shields.io/badge/Visit%20Website-ngo--worldwide.org-blue?style=for-the-badge&logo=google-chrome)](https://ngo-worldwide.org)
 
 ---
 
@@ -18,43 +21,86 @@ To create a world of equal opportunity by supporting humanitarian projects, enco
 
 ---
 
-## 🌐 About Us  
-**Worldwide Ltd Charity Live Impact Globe** is a leading international organization driving positive change through humanitarian aid, education, environmental sustainability, and global development.  
-We leverage **modern technology**, **open-source collaboration**, and **community partnerships** to promote transparency, accelerate progress, and improve lives globally.
-
----
-
 ## 🕊️ Vision  
 A connected world where innovation fuels humanitarian progress, education eliminates inequality, and sustainability ensures a healthy planet for all.
 
 ---
 
-## 💡 Focus Areas  
-- 🌱 **Environmental Action**  
-- 📚 **Education & Empowerment**  
-- 💖 **Humanitarian Relief**  
-- 💊 **Health & Wellbeing**  
-- 💻 **Innovation for Good**
+## 🎥 Dynamic Testimonial Videos  
+**Rotating every 5 minutes**  
+
+<div align="center">
+
+<video id="testimonialVideo" width="480" height="270" autoplay muted loop playsinline>
+  <source src="https://ngo-worldwide.org/testimonials/testimonial1.mp4" type="video/mp4">
+</video>
+
+</div>
+
+<script>
+const videos = [
+  "https://ngo-worldwide.org/testimonials/testimonial1.mp4",
+  "https://ngo-worldwide.org/testimonials/testimonial2.mp4",
+  "https://ngo-worldwide.org/testimonials/testimonial3.mp4",
+  "https://ngo-worldwide.org/testimonials/testimonial4.mp4"
+];
+let index = 0;
+setInterval(() => {
+  index = (index + 1) % videos.length;
+  document.getElementById("testimonialVideo").src = videos[index];
+}, 300000); // every 5 minutes
+</script>
 
 ---
 
-## 📡 Tracking & Transparency System  
-We believe in **open accountability** and **real-time project impact tracking**.  
-Every donation and community project can be traced using our **Worldwide Charity Impact Tracker** — ensuring clarity, trust, and results.  
+## 🏆 Live Winner Spotlight (Auto-Updating)
 
-🔗 Visit: [ngo-worldwide.org/tracker](https://ngo-worldwide.org/tracker)  
-📊 Powered by: GitHub Insights + Blockchain Verification (Beta)
+<div align="center" style="background-color:#001f3f; color:#ffffff; padding:10px; border-radius:10px; font-size:16px; font-weight:bold; overflow:hidden; white-space:nowrap;">
+  <marquee id="winnerMarquee" behavior="scroll" direction="left" scrollamount="5">
+    Loading latest winners...
+  </marquee>
+</div>
+
+<script>
+async function loadWinners() {
+  try {
+    const res = await fetch("https://ngo-worldwide.org/api/winners.json"); // Example live endpoint
+    const data = await res.json();
+    const marquee = document.getElementById("winnerMarquee");
+    marquee.textContent = data.map(
+      w => `🏅 ${w.name} – ${w.country} | ${w.project}`
+    ).join("   •   ");
+  } catch (e) {
+    console.error("Failed to load winners:", e);
+  }
+}
+loadWinners();
+setInterval(loadWinners, 300000); // refresh every 5 min
+</script>
+
+> 🕓 Live feed updates automatically when new winners are verified.
 
 ---
 
-## 🌍 Connect With Us  
-Stay updated and join our mission to create lasting global impact.  
+## 📡 Transparency & Tracking  
+Monitor project funding and results in real-time.  
 
-🌐 **Website:** [https://ngo-worldwide.org](https://ngo-worldwide.org)  
-📧 **Email:** [contact@ngo-worldwide.org](mailto:contact@ngo-worldwide.org)  
-💰 **Donate:** [https://ngo-worldwide.org/donate](https://ngo-worldwide.org/donate)  
+🔗 [ngo-worldwide.org/tracker](https://ngo-worldwide.org/tracker)  
+🎯 [ngo-worldwide.org/winners-dashboard](https://ngo-worldwide.org/winners-dashboard)
 
-### 💬 Social Media  
+---
+
+## 💻 Join or Register as a Winner  
+
+<a href="https://ngo-worldwide.org/winners-dashboard" target="_blank">
+  <img src="https://img.shields.io/badge/Register%20Now-Click%20Here-blue?style=for-the-badge&logo=github" alt="Register Button">
+</a>
+
+---
+
+## 💬 Connect With Us  
+- 🌐 [Website](https://ngo-worldwide.org)  
+- 💌 contact@ngo-worldwide.org  
 - 🔵 [Facebook](https://facebook.com/ngoworldwideltd)  
 - 🟣 [Instagram](https://instagram.com/ngoworldwideltd)  
 - 🐦 [Twitter/X](https://twitter.com/ngoworldwideltd)  
@@ -63,12 +109,5 @@ Stay updated and join our mission to create lasting global impact.
 
 ---
 
-## ⚙️ Repository Info  
-This repository contains the official documentation, updates, and open-source charity integrations managed by **Worldwide Ltd Charity Live Impact Globe**.  
-
-> Building a brighter world — one innovation, one act of kindness at a time.
-
----
-
-© 2025 **Worldwide Ltd Charity Live Impact Globe**  
-Registered under **NGO Worldwide Ltd** • All rights reserved., and community partnerships to promote transparency, 
+**© 2025 Worldwide Ltd Charity Live Impact Globe**  
+Registered under **NGO Worldwide Ltd** • All rights reserved.
