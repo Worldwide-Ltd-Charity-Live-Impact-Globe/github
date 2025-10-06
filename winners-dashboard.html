@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🏆 Winners Dashboard | Worldwide Ltd Charity Live Impact Globe</title>
+  <link rel="icon" href="https://github.com/Worldwide-Ltd-Charity-Live-Impact-Globe/github/blob/main/logo.png">
+  <style>
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f8fb;
+      color: #111;
+    }
+    header {
+      background-color: #002147;
+      color: white;
+      text-align: center;
+      padding: 30px 10px;
+    }
+    header img {
+      width: 80px;
+      border-radius: 10px;
+    }
+    main {
+      padding: 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    h1, h2 {
+      color: #002147;
+    }
+    .winners {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      padding: 20px;
+      margin-bottom: 30px;
+    }
+    .winner-list {
+      font-size: 1rem;
+      color: #222;
+      padding: 10px;
+      line-height: 1.6;
+    }
+    .register-btn {
+      display: inline-block;
+      padding: 15px 25px;
+      background: #0078D7;
+      color: white;
+      border-radius: 8px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .register-btn:hover {
+      background: #005EA8;
+    }
+    footer {
+      background-color: #002147;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+      font-size: 0.9rem;
+    }
+    .video-container {
+      text-align: center;
+      margin: 20px 0;
+    }
+    video {
+      width: 80%;
+      max-width: 600px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="https://github.com/Worldwide-Ltd-Charity-Live-Impact-Globe/github/blob/main/logo.png" alt="Logo">
+  <h1>🏆 Worldwide Ltd Charity Live Impact Globe</h1>
+  <p>Empowering global change through transparency and innovation.</p>
+</header>
+
+<main>
+  <section class="winners">
+    <h2>🎯 Live Registered Winners</h2>
+    <div id="winnerList" class="winner-list">Loading latest verified winners...</div>
+  </section>
+
+  <section class="video-container">
+    <h2>🎥 Testimonial Highlights</h2>
+    <video id="testimonialVideo" autoplay muted loop playsinline>
+      <source src="https://ngo-worldwide.org/testimonials/testimonial1.mp4" type="video/mp4">
+    </video>
+  </section>
+
+  <section style="text-align:center;">
+    <a href="https://ngo-worldwide.org/register" class="register-btn" target="_blank">📝 Register as a Winner</a>
+  </section>
+</main>
+
+<footer>
+  <p>🌐 <a href="https://ngo-worldwide.org" target="_blank" style="color:#00b7ff;">ngo-worldwide.org</a></p>
+  <p>© 2025 Worldwide Ltd Charity Live Impact Globe — All rights reserved.</p>
+</footer>
+
+<script>
+const videos = [
+  "https://ngo-worldwide.org/testimonials/testimonial1.mp4",
+  "https://ngo-worldwide.org/testimonials/testimonial2.mp4",
+  "https://ngo-worldwide.org/testimonials/testimonial3.mp4",
+  "https://ngo-worldwide.org/testimonials/testimonial4.mp4"
+];
+let index = 0;
+setInterval(() => {
+  index = (index + 1) % videos.length;
+  document.getElementById("testimonialVideo").src = videos[index];
+}, 300000);
+
+async function loadWinners() {
+  try {
+    const res = await fetch("https://ngo-worldwide.org/api/winners.json");
+    const data = await res.json();
+    document.getElementById("winnerList").innerHTML = data.map(
+      w => `<div>🏅 <b>${w.name}</b> — ${w.country} | ${w.project}</div>`
+    ).join("");
+  } catch (e) {
+    document.getElementById("winnerList").innerHTML = "Unable to load winners at this time.";
+  }
+}
+loadWinners();
+setInterval(loadWinners, 300000);
+</script>
+
+</body>
+</html>
